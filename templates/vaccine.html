@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>COVID 19</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i|PT+Serif:700" rel="stylesheet">
+    <link rel="stylesheet" href="/static/dist/css/style.css">
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+    </script>
+    <style type="text/css">
+
+  </style>
+</head>
+
+<body class="is-boxed has-animations" style="height: 100%;" onload="getLocation()">
+    <div class="body-wrap boxed-container">
+        <header class="site-header">
+            <div class="container">
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <h1 class="m-0">
+                            <a href="https://helpagainstcovid.co/">
+                                <img src="static/images/coronavirus.png" width="64" height="64" viewBox="0 0 64 64" alt="alternatetext">
+                            </a>
+                        </h1>
+                    </div>
+                    <ul class="header-links list-reset m-0">
+                        <li>
+                            <a href="/about">About</a>
+                        </li>
+                        <li>
+                            <a href="/contact">Contact us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <main>
+        <p style="position: absolute;color: rgba(255, 255, 255, 0.8);margin-left: 37%;margin-top: -7%;font-size: 40px;font-weight: 1000;font-family: 'Lato', sans-serif">Help Against Covid</p><br>
+        <p style="position: absolute;color: rgba(255, 255, 255, 0.8);margin-left:35%;margin-top: -2%;font-size: 15px;font-weight: 1000;font-family: 'Lato', sans-serif">Check Your nearest vaccination center & slot Availability</p>
+        <form method="POST" action="#">
+        <input type="date"  style="position: absolute;margin-left: 36%;margin-top: 2%" id="datepicker" name="date" value={{request.form.date}}> />
+        <button type="submit" style="width: 100px;height: 35px;background-color: white;position: absolute;margin-left: 52%;margin-top: 2%;border:none;">Search</button>
+          </form>
+      </main>
+        <div class="container" style="position: absolute;width: 430px;margin-left: 14%;margin-top: 40%">
+    </div>
+    <br><br><br>
+    <div class="card mb-3">
+        <div class="card-header">
+          <i class="fas fa-table"></i></div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>Vaccine</th>
+                  <th>Slots</th>
+                  <th>Fee</th>
+                  <th>Min Age Limit</th>
+                </tr>
+              </thead>
+              <!--<tfoot>
+                <tr>
+                  <th>#</th>
+                  <th>Transaction</th>
+                  <th>Hash</th>
+                </tr>
+              </tfoot>-->
+              <tbody>
+                  {% for row in range(length) %}
+                    <tr>
+                      <td>{{vaccinetable[row][0]}}</td>
+                      <td>{{vaccinetable[row][1]}}</td>
+                      <td>{{vaccinetable[row][2]}}</td>
+                      <td>{{vaccinetable[row][3]}}</td>
+                      <td>{{vaccinetable[row][4]}}</td>
+                      <td>{{vaccinetable[row][5]}}</td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright © Help Against Covid 2021</span>
+            </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/static/dist/js/vaccine.js"></script>
+</body>
+</html>
